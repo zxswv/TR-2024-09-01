@@ -5,8 +5,9 @@ import { useState } from "react";
 import { clearInterval } from "timers";
 import AnotherButton from "./button/TimeLimited[Button]"; // ファイルパスは適切に修正してください
 import ATK10 from "./ATK/ATKj";
-import EmonoHp from "./emono/emonoHpjs";
-import ATK10Button from "./button/AttacButton";
+// import EmonoHp from "./emono/emonoHpjs";
+import { ATK10Button, ATK11Button, ATK11severalButton, ATKButton } from "./button/AttacButton";
+
 
 // export default TimeLimitedButton;
 
@@ -48,8 +49,9 @@ export default function Home() {
       獲物のHP表示
       <div>{/* <emono1 /> */}</div>
       <div>
-        <ATK10Button />
-        <ATK11
+        { <ATK10Button /> }
+        {<ATK11Button /> }
+        {/* <ATK11severalButton /> */}
       </div>
     </div>
   );
