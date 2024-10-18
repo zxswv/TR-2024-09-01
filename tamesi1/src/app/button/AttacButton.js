@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { emonoHp, emonoHpList } from "../emono/emonoHpjs";
 
 //単体処理
@@ -20,53 +20,70 @@ import { emonoHp, emonoHpList } from "../emono/emonoHpjs";
 // };
 
 
-export const ATK10Button = () => {
-  return ATKButton(10) 
-};
-
-export const ATK11Button = () => {
-  return ATKButton(11)
-};
+  export const handleAttack = (domage, currentHp, setCurrentHp, timeRemaining, buttonDisabled, setButtonDisabled) => {
 
 
-export const ATKButton = (ATKk10) => {
-  const [currentHp, setCurrentHp] = useState(emonoHp.hp); // emonoHp から HP を取得
 
-  const handleAttack = () => {
+  
     if (currentHp > 0) {
-      setCurrentHp(currentHp - ATKk10);
-    }
+      setCurrentHp(currentHp - domage);
+    } //0より低くしない
+  
+
   };
-  return (
-    <div>
-      <p>HP: {currentHp}</p>
-      <button onClick={handleAttack}>ダメージ</button>
-    </div>
-  );
-};
+
+
+
+    // const handleClick = () => {
+    //   // ボタンが押されたときの処理
+
+    //   <ATK10 />;
+    // };
+    //   // 時間切れになったらボタンを無効化
+    //   return () => {
+    //     if (intervalRef.current) {
+    //       clearInterval(intervalRef.current);
+    //     }
+    //   };
+    // }, []);
+  
+    // useEffect(() => {
+    //   // 時間切れになったらボタンを無効化
+    //   if (timeRemaining <= 0) {
+    //     setButtonDisabled(true);
+    //   }
+    // }, [timeRemaining]);
+  
+    // const handleClick = () => {
+    //   // ボタンが押されたときの処理
+    //   console.log("ボタンが押されました！");
+    //   <ATK10 />;
+    // };    
+
+
 
 
 // export default
 
 //複数体処理
-const enemyIndex = 1;
-export const ATK11severalButton = () => {
-  // const [currentHp, setCurrentHp] = useState(emonoHpList[enemyIndex].hp);
-  const [currentHp, setCurrentHp] = useState(emonoHp.hp);
+// const enemyIndex = 1;
+// export const ATK11severalButton = () => {
+//   // const [currentHp, setCurrentHp] = useState(emonoHpList[enemyIndex].hp);
+//   const [currentHp, setCurrentHp] = useState(emonoHp.hp);
 
-  const handleAttack = () => {
-    if (currentHp > 0) {
-      emonoHpList[enemyIndex].hp = currentHp - 11;
-      setCurrentHp(currentHp - 11);
-    }
-  };
-  return (
-    <div>
-      <p>HP: {currentHp}</p>
-      <button onClick={handleAttack}>11ダメージ</button>
-    </div>
-  );
-};
+//   const handleAttack = () => {
+//     if (currentHp > 0) {
+//       emonoHpList[enemyIndex].hp = currentHp - 11;
+//       setCurrentHp(currentHp - 11);
+//     }
+//   };
+//   return (
+//     <div>
+//       <p>HP: {currentHp}</p>
+//       <button onClick={handleAttack}>11ダメージ</button>
+//     </div>
+//   );
+// };
 
 
 
